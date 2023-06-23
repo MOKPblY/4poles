@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>Приложение для расчета соединений четырехполюсников</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    </head>
+    <body>
+
+        <div class="container">
+            <div id="input">
+                <form action="{{url_for('get_result')}}" method="POST" enctype="multipart/form-data">
+                    <p>
+                        <label for="in_form_1">
+                            Первый четырехполюсник задается в:
+                        </label>
+                        <select name="inForm1" id="in_form_1">
+                            <option value="a">
+                                A форме
+                            </option>
+                            <option value="y">
+                                Y форме
+                            </option>
+                            <option value="z">
+                                Z форме
+                            </option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="in_form_2">
+                            Второй четырехполюсник задается в:
+                        </label>
+                        <select name="inForm2" id="in_form_2">
+                            <option value="a">
+                                A форме
+                            </option>
+                            <option value="y">
+                                Y форме
+                            </option>
+                            <option value="z">
+                                Z форме
+                            </option>
+                        </select>
+                    </p>
+                    <p>
+                            <span>Выберите Excel-файл:</span>
+                            <label id="filelabel" class="label" for="file">
+                                <input required type="file" name="file" id="file" class="fileinput" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                                <span>Загрузить файл</span>
+                            </label>
+
+                    </p>
+                    <p>
+                        <label for="con-types">
+                            Тип соединения:
+                        </label>
+
+                        <select name="conType" id="con-types">
+                            <option value="p">
+                                Параллельное
+                            </option>
+                            <option value="s">
+                                Последовательное
+                            </option>
+                            <option value="c">
+                                Каскадное
+                            </option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="out-forms">
+                            Эквивалентный четырехполюсник получим в:
+                        </label>
+                        <select name="outForm" id="out-forms">
+                            <option value="a">
+                                A форме
+                            </option>
+                            <option value="y">
+                                Y форме
+                            </option>
+                            <option value="z">
+                                Z форме
+                            </option>
+                        </select>
+                    </p>                    
+                    <p>
+                        <span></span>
+                        <input id="submit" type="submit" value="Посчитать">
+                    </p>
+                </form>
+            </div>
+            <div id="graphs">
+                <div id="freq_graphs" class="graphs_row">
+                    <div id="afc">
+                        <canvas id="afc_canvas"></canvas>
+                    </div>
+                    <div id="pfc" >
+                        <canvas id="pfc_canvas"></canvas>
+                    </div>
+                </div>
+                <div id="time_graphs" class="graphs_row">
+                    <div id="re_time">
+                        <canvas id="re_time_canvas"></canvas>
+                    </div>
+                    <div id="im_time" >
+                        <canvas id="im_time_canvas"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
+        <script src="{{url_for('static', filename='js/data_to_graphs.js')}}"></script>
+        <script src="{{url_for('static', filename='js/fileinput.js')}}"></script>
+    </body>
+</html>

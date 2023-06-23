@@ -1,0 +1,91 @@
+@import "reset.css";
+body {
+    font: 1vmax "Open Sans", sans-serif;
+    height: 100%;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.minicontainer {
+    margin: 0 auto;
+    width: 50vw;
+    padding: 2vw;
+    background-color: #d9d9d9;
+    padding-bottom: 5vmax;
+    display: flex;
+}
+
+form {
+    width: 50vw;
+    margin: 3vmax auto;
+}
+
+form > p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0;
+}
+
+form > p > :nth-child(2) {
+    width: 12vw;
+    font:  1vmax "Open Sans", sans-serif;
+    cursor: pointer;
+    outline: none;
+    padding: 7px 12px;
+    border-radius:17px;
+    border: 2px solid white;
+    background-color: buttonface;
+}
+
+form > p > :nth-child(2):focus,
+form > p > :nth-child(2):hover {
+    border-color: #545454;
+}
+
+#graphs {
+    display: flex;
+    flex-direction: column;
+}
+
+.graphs_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.graphs_row > div {
+    height: 30vmax;
+    width: 50%;
+}
+
+.fileinput {
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.label {
+    display: inline-block;
+}
+
+.fileinput:focus ~ label,
+.fileinput ~ label:hover {
+    border-color: black;
+}
+
+#submit {
+    margin: 0;
+    margin-top: 2vmax;
+}
+
+#submit:focus {
+    border-color: white;
+}
